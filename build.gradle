@@ -1,0 +1,87 @@
+buildscript {
+	ext {
+		springversion = "1.4.1.RELEASE"
+		camelversion = "2.18.2"
+	}
+}
+
+// Apply the java plugin to add support for Java
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+jar {
+    baseName = 'spring-boot-crudBasico-api'
+}
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use 'jcenter' for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+    mavenLocal()
+    maven {
+    	url "http://repo1.maven.org/maven2/"
+    }
+    maven {
+    	url "https://plugins.gradle.org/m2/"
+    }    
+    mavenCentral()
+    maven {
+        url "https://mvnrepository.com/"
+	}
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+    // The production code uses the SLF4J logging API at compile time
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    
+    //dependências do spring-boot
+    compile "org.springframework.boot:spring-boot-starter-parent:${springversion}"
+    compile "org.springframework.boot:spring-boot-starter-web:${springversion}"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa:${springversion}"
+    
+    compile "org.springframework.boot:spring-boot-devtools:${springversion}"
+
+	// https://mvnrepository.com/artifact/com.h2database/h2
+	compile 'com.h2database:h2:1.4.193'
+	compile 'org.flywaydb:flyway-core:3.0'
+	
+	// https://mvnrepository.com/artifact/org.apache.camel/camel-spring-boot
+	//compile 'org.apache.camel:camel-spring-boot:${camelversion}'	
+	
+	compile "org.apache.camel:camel-spring-boot-starter:${camelversion}"
+	//compile "org.apache.camel:camel-spring-boot-starter-web:${camelversion}"
+	
+	// https://mvnrepository.com/artifact/org.apache.camel/camel-http-starter
+	//compile group: 'org.apache.camel', name: 'camel-http-starter', version: '${camel.version}'
+
+	// https://mvnrepository.com/artifact/org.apache.camel/camel-sap-netweaver
+	//compile group: 'org.apache.camel', name: 'camel-sap-netweaver', version: '${camel.version}'
+		
+	// https://mvnrepository.com/artifact/org.apache.camel/camel-metrics-starter
+	//compile group: 'org.apache.camel', name: 'camel-metrics-starter', version: '${camel.version}'
+		
+	// https://mvnrepository.com/artifact/org.apache.camel/camel-slack-starter
+	//compile group: 'org.apache.camel', name: 'camel-slack-starter', version: '${camel.version}'
+	
+	// https://mvnrepository.com/artifact/org.apache.camel/camel-eventadmin
+	//compile group: 'org.apache.camel', name: 'camel-eventadmin', version: '${camel.version}'
+	
+	// https://mvnrepository.com/artifact/org.apache.camel/camel-commands-spring-boot
+	//compile 'org.apache.camel:camel-commands-spring-boot:${camel.version}'
+		
+    // Declare the dependency for your favourite test framework you want to use in your tests.
+    // TestNG is also supported by the Gradle Test task. Just change the
+    // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
+    // 'test.useTestNG()' to your build script.
+    // testCompile 'junit:junit:4.12'
+    
+    testCompile "org.springframework.boot:spring-boot-starter-test:${springversion}"
+	// https://mvnrepository.com/artifact/org.flywaydb.flyway-test-extensions/flyway-dbunit-spring4-test
+	//testCompile 'org.flywaydb.flyway-test-extensions:flyway-dbunit-spring4-test:4.0.1'
+    
+    // https://mvnrepository.com/artifact/org.apache.camel/camel-test-spring
+	testCompile "org.apache.camel:camel-test-spring:${camelversion}"
+	testCompile 'com.github.springtestdbunit:spring-test-dbunit:1.3.0'
+}
