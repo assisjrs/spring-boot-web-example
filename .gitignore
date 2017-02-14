@@ -1,5 +1,5 @@
 # Created by https://www.gitignore.io
-#gradlew*
+gradlew*
 .idea/*
 ### Java ###
 *.class
@@ -19,19 +19,19 @@ hs_err_pid*
 ### Eclipse ###
 *.pydevproject
 .metadata
-#.gradle
-#bin/
+.gradle
+bin/
 tmp/
 *.tmp
 *.bak
 *.swp
 *~.nib
 local.properties
-#.settings/
+.settings/
 .loadpath
 
 # Eclipse Core
-#.project
+.project
 
 # External tool builders
 .externalToolBuilders/
@@ -56,7 +56,7 @@ local.properties
 
 
 ### Gradle ###
-#build/
+build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
