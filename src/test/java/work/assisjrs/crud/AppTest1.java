@@ -20,10 +20,10 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
 import work.assisjrs.TestConfiguration;
-import work.assisjrs.crud.HomeController;
-import work.assisjrs.crud.Shipwreck;
-import work.assisjrs.crud.ShipwreckController;
-import work.assisjrs.crud.ShipwreckRepository;
+import work.assisjrs.shipwreck.HomeController;
+import work.assisjrs.shipwreck.Shipwreck;
+import work.assisjrs.shipwreck.ShipwreckController;
+import work.assisjrs.shipwreck.ShipwreckRepository;
 
 @SpringBootTest(classes = TestConfiguration.class)
 @WebAppConfiguration

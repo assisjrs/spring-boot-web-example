@@ -1,4 +1,4 @@
-package work.assisjrs.crud;
+package work.assisjrs.shipwreck;
 
 import java.util.List;
 
@@ -46,7 +46,7 @@ public class ShipwreckController {
 
 	@RequestMapping(value = "shipwrecks/{id}", method = RequestMethod.DELETE)
 	public Shipwreck delete(@PathVariable Long id) {
-		Shipwreck navioExistente = shipwreckRepository.findOne(id);
+		final Shipwreck navioExistente = shipwreckRepository.findOne(id);
 
 		shipwreckRepository.delete(navioExistente);
 

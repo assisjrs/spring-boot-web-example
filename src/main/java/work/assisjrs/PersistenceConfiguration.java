@@ -1,4 +1,4 @@
-package work.assisjrs.crud;
+package work.assisjrs;
 
 import javax.sql.DataSource;
 

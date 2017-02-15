@@ -1,4 +1,4 @@
-package work.assisjrs.crud;
+package work.assisjrs.shipwreck;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
