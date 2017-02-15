@@ -1,4 +1,4 @@
-package work.assisjrs;
+package work.assisjrs.crud;
 
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -24,6 +24,8 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+
+import work.assisjrs.TestConfiguration;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest

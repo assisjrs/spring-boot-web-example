@@ -1,4 +1,4 @@
-package work.assisjrs.springBootCrudBasico;
+package work.assisjrs.crud;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

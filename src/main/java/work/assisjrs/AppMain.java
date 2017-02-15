@@ -1,4 +1,4 @@
-package work.assisjrs.springBootCrudBasico;
+package work.assisjrs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

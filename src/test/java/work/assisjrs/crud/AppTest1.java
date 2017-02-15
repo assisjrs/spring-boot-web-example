@@ -1,4 +1,4 @@
-package work.assisjrs;
+package work.assisjrs.crud;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
@@ -19,10 +19,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
-import work.assisjrs.springBootCrudBasico.HomeController;
-import work.assisjrs.springBootCrudBasico.Shipwreck;
-import work.assisjrs.springBootCrudBasico.ShipwreckController;
-import work.assisjrs.springBootCrudBasico.ShipwreckRepository;
+import work.assisjrs.TestConfiguration;
+import work.assisjrs.crud.HomeController;
+import work.assisjrs.crud.Shipwreck;
+import work.assisjrs.crud.ShipwreckController;
+import work.assisjrs.crud.ShipwreckRepository;
 
 @SpringBootTest(classes = TestConfiguration.class)
 @WebAppConfiguration
