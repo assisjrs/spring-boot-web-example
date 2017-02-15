@@ -29,10 +29,10 @@ public class ShipwreckController {
 	@RequestMapping(value = "shipwrecks/{id}", method = RequestMethod.GET)
 	public Shipwreck get(@PathVariable Long id) throws Exception {
 		final Shipwreck ship = shipwreckRepository.findOne(id);
-		
-		if(ship == null)
-			throw new Exception();
-		
+
+		if (ship == null)
+			throw new IllegalArgumentException();
+
 		return ship;
 	}
 

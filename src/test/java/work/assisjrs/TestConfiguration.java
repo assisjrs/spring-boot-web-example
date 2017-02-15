@@ -7,13 +7,12 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Primary;
 
 @Configuration
-@ComponentScan(basePackages = { "work.assisjrs" }, excludeFilters = { @Filter(Configuration.class) })
+@ComponentScan(basePackages = { "work.assisjrs" })
 @EnableAutoConfiguration
 @EnableAspectJAutoProxy
 public class TestConfiguration {
@@ -21,6 +20,12 @@ public class TestConfiguration {
 	@ConfigurationProperties(prefix = "spring.datasource")
 	@Primary
 	public DataSource dataSource() {
+		return DataSourceBuilder.create().build();
+	}
+
+	@Bean
+	@ConfigurationProperties(prefix = "datasource.flyway")
+	public DataSource flywayDataSource() {
 		return DataSourceBuilder.create().build();
 	}
 }

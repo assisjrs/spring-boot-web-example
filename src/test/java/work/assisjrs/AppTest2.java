@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.TestExecutionListeners.MergeMode;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -24,17 +25,15 @@ import org.springframework.web.context.WebApplicationContext;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 
-@SpringBootTest(classes = TestConfiguration.class)
-@WebAppConfiguration
-
 @RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest
+@WebAppConfiguration
 @Transactional
+@ContextConfiguration(classes = { TestConfiguration.class })
 @TestExecutionListeners(value = { DependencyInjectionTestExecutionListener.class,
 		DirtiesContextTestExecutionListener.class,
 		DbUnitTestExecutionListener.class }, mergeMode = MergeMode.MERGE_WITH_DEFAULTS)
-@DatabaseSetup("/Datasets/AppTest.xml")
 public class AppTest2 {
-
 	@Autowired
 	private WebApplicationContext wac;
 
@@ -46,9 +45,10 @@ public class AppTest2 {
 		mockMvc = webAppContextSetup(wac).build();
 	}
 
+	@DatabaseSetup("/Datasets/AppTest.xml")
 	@Test
 	public void teste3() throws Exception {
-		mockMvc.perform(get("/api/v1/shipwrecks/1/"))
-	   .andExpect(status().isOk());
+		mockMvc.perform(get("/api/v1/shipwrecks/1"))
+		       .andExpect(status().isOk());
 	}
 }
