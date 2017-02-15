@@ -47,7 +47,7 @@ public class ShipwreckControllerIntegrationTest {
 		mockMvc = webAppContextSetup(wac).build();
 	}
 
-	@DatabaseSetup("/Datasets/ShipwreckControllerIntegrationTest/AppTest.xml")
+	@DatabaseSetup("/Datasets/ShipwreckControllerIntegrationTest/deveRetornarUmNavioPorSeuId.xml")
 	@Test
 	public void deveRetornarUmNavioPorSeuId() throws Exception {
 		mockMvc.perform(get("/api/v1/shipwrecks/1"))
