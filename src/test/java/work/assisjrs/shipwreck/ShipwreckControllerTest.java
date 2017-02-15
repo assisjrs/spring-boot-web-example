@@ -1,6 +1,6 @@
 package work.assisjrs.shipwreck;
 
-import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -19,17 +19,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
-import work.assisjrs.TestConfiguration;
-import work.assisjrs.shipwreck.HomeController;
-import work.assisjrs.shipwreck.Shipwreck;
-import work.assisjrs.shipwreck.ShipwreckController;
-import work.assisjrs.shipwreck.ShipwreckRepository;
-
-@SpringBootTest(classes = TestConfiguration.class)
-@WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
-public class AppTest1 {
-
+@SpringBootTest
+@WebAppConfiguration
+public class ShipwreckControllerTest {
 	@InjectMocks
 	ShipwreckController controller;
 
@@ -45,20 +38,22 @@ public class AppTest1 {
 	}
 
 	@Test
-	public void teste1() {
-		HomeController controller = new HomeController();
+	public void deveRetornarAListaDeTodosOsNavios() throws Exception {
+		ArrayList<Shipwreck> shipwrecks = new ArrayList<Shipwreck>();
 
-		final String result = controller.index();
+		when(shipwreckRepository.findAll())
+	   .thenReturn(shipwrecks);
 
-		assertEquals("Home", result);
+		mockMvc.perform(get("/api/v1/shipwrecks"))
+	   .andExpect(status().isOk());
 	}
 
 	@Test
-	public void teste2() throws Exception {
-		ArrayList<Shipwreck> shipwrecks = new ArrayList<Shipwreck>();
+	public void casoNaoEncontreONavioPorIdLancarIllegalArgumentException() throws Exception {
+		when(shipwreckRepository.findOne(eq(1L)))
+	   .thenReturn(null);
 
-		when(shipwreckRepository.findAll()).thenReturn(shipwrecks);
-
-		mockMvc.perform(get("/api/v1/shipwrecks")).andExpect(status().isOk());
+		mockMvc.perform(get("/api/v1/shipwrecks/1"))
+			   .andExpect(status().isNotFound());
 	}
 }

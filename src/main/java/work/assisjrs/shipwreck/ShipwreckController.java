@@ -31,7 +31,7 @@ public class ShipwreckController {
 		final Shipwreck ship = shipwreckRepository.findOne(id);
 
 		if (ship == null)
-			throw new IllegalArgumentException();
+			throw new ShipwreckNotFoundException();
 
 		return ship;
 	}

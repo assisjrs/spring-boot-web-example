@@ -35,7 +35,7 @@ import work.assisjrs.TestConfiguration;
 @TestExecutionListeners(value = { DependencyInjectionTestExecutionListener.class,
 		DirtiesContextTestExecutionListener.class,
 		DbUnitTestExecutionListener.class }, mergeMode = MergeMode.MERGE_WITH_DEFAULTS)
-public class AppTest2 {
+public class ShipwreckControllerIntegrationTest {
 	@Autowired
 	private WebApplicationContext wac;
 
@@ -49,8 +49,8 @@ public class AppTest2 {
 
 	@DatabaseSetup("/Datasets/AppTest.xml")
 	@Test
-	public void teste3() throws Exception {
+	public void deveRetornarUmNavioPorSeuId() throws Exception {
 		mockMvc.perform(get("/api/v1/shipwrecks/1"))
-		       .andExpect(status().isOk());
+			   .andExpect(status().isOk());
 	}
 }
