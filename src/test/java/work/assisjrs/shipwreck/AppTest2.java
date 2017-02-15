@@ -1,4 +1,4 @@
-package work.assisjrs.crud;
+package work.assisjrs.shipwreck;
 
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

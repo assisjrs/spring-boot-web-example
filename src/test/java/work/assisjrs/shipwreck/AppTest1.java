@@ -1,4 +1,4 @@
-package work.assisjrs.crud;
+package work.assisjrs.shipwreck;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
