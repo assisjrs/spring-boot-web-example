@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class HomeControllerTest {
 	@Test
-	public void DeveRetornarHomeAoAcessarOEndpointIndex() {
+	public void deveRetornarHomeAoAcessarOEndpointIndex() {
 		HomeController controller = new HomeController();
 
 		final String result = controller.index();
